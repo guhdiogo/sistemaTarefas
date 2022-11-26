@@ -1,0 +1,62 @@
+<div ng-controller="userController">
+    <div class="row">
+        <div class="table_esqueda col-5" style="margin-left: 5%">
+            <h3>Listagem</h3><hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Acão</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in usuarios">
+                    <td>{{user.id}}</td>
+                    <td>{{user.nome}}</td>
+                    <td>{{user.login}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-warning btn-sm" ng-click="editarUsuario(user.id)">Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" ng-click="excluirUsuario(user.id)">Excluir</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table_esqueda col-5" style="margin-left: 5%">
+            <h3>Formulário</h3><hr>
+            <form>
+                <div class="form-group row">
+                    <label for="idUsuario" class="col-sm-2 col-form-label">idUsuario</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="idUsuarioInput" disabled id="idUsuario" placeholder="idUsuario">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row">
+                    <label for="login" class="col-sm-2 col-form-label">Login</label>
+                    <div class="col-sm-10">
+                        <input type="text" maxlength="30" class="form-control" ng-model="loginInput" id="login" placeholder="Digite seu login">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="senha" class="col-sm-2 col-form-label">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="Password" maxlength="30" class="form-control" ng-model="senhaInput" id="senha" placeholder="Digite sua senha">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                    <div class="col-sm-10">
+                        <input type="text" maxlength="150" class="form-control" ng-model="nomeInput" id="nome" placeholder="Digite seu nome completo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-outline-primary" ng-click="salvarUsuario()">Salvar</button>
+                    <button type="submit" style="margin-left: 1%" class="btn btn-outline-danger" ng-click="limparForm()">Limpar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
