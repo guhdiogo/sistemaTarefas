@@ -11,8 +11,8 @@
 
         foreach ($usuarios AS $user){
             if(
-                $user[0] == $login['login'] &&
-                $user[1] == $login['senha']
+                $user[0] == addslashes($login['login']) &&
+                $user[1] == addslashes($login['senha'])
             ){
                 echo 1;
                 exit();

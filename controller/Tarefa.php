@@ -24,6 +24,9 @@ function listarTarefas(){
 //Salva e altera as tarefas
 function salvarTarefa(){
     $tarefa = $_POST;
+    $tarefa['nome']         = addslashes($tarefa['nome']);
+    $tarefa['descricao']    = addslashes($tarefa['descricao']);
+
     if(!empty($tarefa['idTarefas'])){
         mysqli_query(conectar(), "UPDATE tarefas SET nome = '{$tarefa['nome']}', descricao = '{$tarefa['descricao']}' WHERE idTarefas = {$tarefa['idTarefas']}");
         echo $tarefa['idTarefas'];

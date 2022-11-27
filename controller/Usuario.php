@@ -25,6 +25,10 @@ function listarUsuarios(){
 //Salva/edita usuário
 function salvarUsuario(){
     $usuario = $_POST;
+    $usuario['login']  = addslashes($usuario['login']);
+    $usuario['senha']  = addslashes($usuario['senha']);
+    $usuario['nome']   = addslashes($usuario['nome']);
+
     if(!empty($usuario['idUsuario'])){
         mysqli_query(conectar(), "UPDATE usuarios SET login = '{$usuario['login']}', senha = '{$usuario['senha']}', nome = '{$usuario['nome']}' WHERE idUsuarios = {$usuario['idUsuario']}");
         echo $usuario['idUsuario'];

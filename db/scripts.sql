@@ -1,4 +1,6 @@
-create table usuarios
+create database sistemastarefas;
+
+create table sistemastarefas.usuarios
 (
     idUsuarios int auto_increment primary key,
     login      varchar(30)  not null,
@@ -9,7 +11,7 @@ create table usuarios
 INSERT INTO sistemastarefas.usuarios (login, senha, nome)
     VALUES ('admin', 'admin@123', 'Teste Usuairo');
 
-create table tarefas
+create table sistemastarefas.tarefas
 (
     idTarefas int auto_increment
         primary key,
